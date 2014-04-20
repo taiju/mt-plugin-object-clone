@@ -54,7 +54,7 @@ callbacks:
 
 ObjectClone::Patcher is patch interface for tools/object-clone.
 
-For example, they modify unique basename for clone object.
+For example, they modify of clone object basename to unique basename.
 
 ObjectClone plugin has patcher class below.
 

@@ -43,7 +43,10 @@ callbacks:
   ObjectClone::Patcher::MT::Entry::before_apply_patch: |
     sub {
       my ($cb, $patcher) = @_;
-      $patcher->add_patch('basename', sub { warn 'Patching entry basename!!!' });
+      $patcher->add_patch('basename', sub {
+        my ($new_obj, $orig_obj) = @_;
+        'new-basename';
+      });
     }
 ```
 

@@ -20,7 +20,7 @@ sub tag {
   my $field = shift;
   my $eh = MT::ErrorHandler->new;
   unless ($field->validates_uniqueness_of_tag($eh)) {
-    die MT::I18N::encode_text($eh->errstr, 'utf-8') unless $field->validates_uniqueness_of_tag($eh);
+    die MT::I18N::encode_text($eh->errstr, 'utf-8');
   }
   $field->tag;
 }

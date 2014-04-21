@@ -8,7 +8,7 @@ use parent 'ObjectClone::Patcher';
 sub new {
   my $class = shift;
   my $self = $class->SUPER::new(@_);
-  $self->add_patch(basename  => \&basename);
+  $self->add_patch(basename => \&basename);
 }
 
 sub basename {

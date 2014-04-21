@@ -14,7 +14,7 @@ USAGE: perl tools/object-clone --model=NAME --orig_id=NUM [OPTION]
 
 Requires:
   -m, --model=NAME      Model name (object datasource) of object to make clone.
-  -o, --orig_id_id=NUM  Original object id clone object.
+  -o, --orig_id=NUM     Original object id clone object.
 
 Options:
   -a, --amount=NUM      Amount of clones to make. Default 1.

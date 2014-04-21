@@ -101,7 +101,7 @@ subtest 'Testing for ObjectClone::Patcher::(add|remove)_patch and O::P::apply_pa
 };
 
 subtest 'Testing for ObjectClone::Patcher::MT::Entry' => sub {
-  subtest 'When applied default patch without blog_id modifying' => sub {
+  subtest 'When applied default patch' => sub {
     no warnings 'redefine';
     my $orig_obj = MT::Entry->new;
     $orig_obj->set_values({
@@ -116,25 +116,6 @@ subtest 'Testing for ObjectClone::Patcher::MT::Entry' => sub {
     $patcher->apply_patch;
     isnt($new_obj->basename, $orig_obj->basename,'$new_obj->basename is not equal to $orig_obj->basename.');
     isnt($new_obj->id, $orig_obj->id, '$new_obj->id is not equal to $orig_obj->id.');
-  };
-
-  subtest 'When applied default patch with blog_id modifying' => sub {
-    no warnings 'redefine';
-    my $orig_obj = MT::Entry->new;
-    $orig_obj->set_values({
-      id => 1,
-      blog_id => 1,
-      category_id => 1,
-      atom_id => 'foo',
-    });
-    local *MT::Util::make_unique_basename = sub {};
-    local *MT::Entry::make_atom_id = sub { 'bar' };
-    my $new_obj = $orig_obj->clone;
-    $new_obj->blog_id(2);
-    my $patcher = ObjectClone::Patcher->model('entry')->new($new_obj, $orig_obj);
-    $patcher->apply_patch;
-    isnt($new_obj->atom_id, $orig_obj->atom_id, '$new_obj->atom_id is not equal to $orig_obj->atom_id.');
-    isnt($new_obj->category_id, $orig_obj->category_id, '$new_obj->category_id is not equal to $orig_obj->category_id.');
   };
 };
 

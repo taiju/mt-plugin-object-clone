@@ -5,8 +5,6 @@ use warnings;
 
 use lib qw(lib extlib t/lib);
 
-use File::Basename;
-use File::Spec;
 use Test::More;
 
 use MT::Test;

@@ -3,8 +3,6 @@ package MT::Tool::ObjectClone;
 use strict;
 use warnings;
 
-use FindBin;
-
 use parent 'MT::Tool';
 
 use MT;

@@ -39,7 +39,7 @@ sub main {
     my $patcher = ObjectClone::Patcher->model($model)->new($new_obj, $orig_obj);
     $patcher->apply_patch;
     $new_obj->save or die $new_obj->errstr;
-    printf "Made clone of a %s object (%s=%d).\n", $class, $pkey, $new_obj->$pkey;
+    printf "Made a clone of %s object (%s=%d).\n", $class, $pkey, $new_obj->$pkey;
     print MT::Util::YAML::Dump($new_obj->get_values) if $debug;
   }
 }
